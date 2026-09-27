@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Ad & Unlock</title>
+    <!-- Adsgram SDK -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #0f172a; color: #fff; padding-top: 50px; }
+        .btn { background: #6366f1; color: white; border: none; padding: 15px 30px; font-size: 18px; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>🎁 Watch Ad to Proceed</h2>
+    <p>Click the button below to watch a short ad with a timer:</p>
+    <button class="btn" onclick="showAd()">Watch Ad Now</button>
+
+    <script>
+        function showGroupAd() {
+            // Aapki Adsgram Unit ID yahan ladi hai
+            if (window.Adsgram) {
+                window.Adsgram.init({ blockId: "bot-50234" }).show()
+                    .then((result) => {
+                        // Ad successfully dekh liya user ne
+                        alert("🎉 Ad Complete! Now returning to bot...");
+                        window.location.href = "https://t.me/a2z_social_downloader_bot";
+                    })
+                    .catch((err) => {
+                        alert("⚠️ Ad skipped or error occurred. Please try again.");
+                    });
+            } else {
+                alert("Adsgram SDK failed to load.");
+            }
+        }
+        function showAd() { showGroupAd(); }
+    </script>
+</body>
+</html>
